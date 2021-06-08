@@ -5,5 +5,6 @@ main.wasm:
 	$(CC) main.c --target=wasm32-wasi -o main.wasm --sysroot=$(SYSROOT)
 
 wasmer-example:
-	clang wasmer-example.c -o wasmer-example `wasmer config --libs` `wasmer config --cflags`
+	clang wasmer-example.c -o wasmer-example -v -static -lpthread `wasmer config --libs` `wasmer config --cflags`
+
 
